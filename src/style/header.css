@@ -1,0 +1,23 @@
+.myBg {
+    min-height: 100vh;
+    background: url("../assets/bg.jpg");
+    background-size: cover;
+}
+
+.card {
+    background: url("../assets/bg2.jpg");
+    background-size: cover;
+}
+
+
+.movieImage {
+    height: auto;
+    background-color: black;
+    margin: 5px;
+    padding: 5px;
+}
+
+.contenImage {
+    max-width: 550px;
+    margin: 70px auto;
+}
