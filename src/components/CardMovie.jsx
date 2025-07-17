@@ -1,4 +1,4 @@
-import {useContext, useState} from 'react';
+import {useContext} from 'react';
 import { WatchlistContext } from '../context/WatchlistContext';
 import {Button, Card, Col, Container, Form, Image, Row} from 'react-bootstrap';
 import SupermanImage from '../assets/superman.png';

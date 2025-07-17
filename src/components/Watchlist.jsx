@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { WatchlistContext } from "../context/WatchlistContext";
 import { Card, Button, Col, Container, Image, Row, Form } from "react-bootstrap";
 import "../style/header.css";
