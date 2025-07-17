@@ -3,7 +3,7 @@ import NavigationBar from "./components/NavigationBar";
 import "./style/header.css";
 import Content from "./components/Content";
 import CardMovie from "./components/CardMovie";
-import Watchlist from "./components/Watchlist"; // ⬅️ Import halaman baru
+import Watchlist from "./components/Watchlist";
 
 function App() {
     return (

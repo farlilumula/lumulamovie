@@ -5,7 +5,6 @@ const CommentSection = ({ movieTitle }) => {
     const [comment, setComment] = useState('');
     const [rating, setRating] = useState(0);
 
-    // Ambil komentar & rating dari localStorage
     useEffect(() => {
         const storedData = localStorage.getItem('comments');
         if (storedData) {
