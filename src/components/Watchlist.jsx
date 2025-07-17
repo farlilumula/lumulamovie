@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { WatchlistContext } from "../context/WatchlistContext";
 import { Card, Button, Col, Container, Image, Row, Form } from "react-bootstrap";
 import "../style/header.css";
+import CommentSection from './CommentSection';
 
 const Watchlist = () => {
     const { watchlist, removeFromWatchlist } = useContext(WatchlistContext);
@@ -45,6 +46,8 @@ const Watchlist = () => {
                                         <Button variant="danger" onClick={() => removeFromWatchlist(movie.title)}>
                                             Hapus
                                         </Button>
+                                        {/* 💬 Komentar & Rating */}
+                                        <CommentSection movieTitle={movie.title} />
                                     </div>
                                 </Card>
                             </Col>

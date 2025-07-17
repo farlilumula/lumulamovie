@@ -1,6 +1,6 @@
-import { useContext } from 'react';
+import {useContext, useState} from 'react';
 import { WatchlistContext } from '../context/WatchlistContext';
-import { Button, Card, Col, Container, Image, Row } from 'react-bootstrap';
+import {Button, Card, Col, Container, Form, Image, Row} from 'react-bootstrap';
 import SupermanImage from '../assets/superman.png';
 import SmileImage from '../assets/smile.png';
 import theScentImage from '../assets/the scent.png';
@@ -11,13 +11,15 @@ import TheFatasticImage from '../assets/The Fantastic Four.jpg';
 const CardMovie = () => {
     const { addToWatchlist } = useContext(WatchlistContext);
 
+
+
     const movies = [
-        { title: 'Superman', image: SupermanImage },
-        { title: 'Smile', image: SmileImage },
-        { title: 'The Scent', image: theScentImage },
-        { title: 'Lost City', image: LostCityImage },
-        { title: 'The Last Of Us', image: ThelastOfUseImage },
-        { title: 'The Fantastic Four', image: TheFatasticImage },
+        { title: 'Superman', year:"2025", text:"Superman must reconcile his alien Kryptonian heritage with his human upbringing as reporter Clark Kent. As the embodiment of truth, justice and the human way he soon finds himself in a world that views these as old-fashioned" , image: SupermanImage },
+        { title: 'Smile', year:"2022", text:"After witnessing a bizarre, traumatic incident involving a patient, a psychiatrist becomes increasingly convinced she is being threatened by an uncanny entity.", image: SmileImage },
+        { title: 'The Scent', year:"2022", text:"Horor", image: theScentImage },
+        { title: 'Lost City', year:"2022", text:"A reclusive romance novelist on a book tour with her cover model gets swept up in a kidnapping attempt that lands them both in a cutthroat jungle adventure.", image: LostCityImage },
+        { title: 'The Last Of Us', year:"2025", text:"After a global pandemic destroys civilization, a hardened survivor takes charge of a 14-year-old girl who may be humanity's last hope.", image: ThelastOfUseImage },
+        { title: 'The Fantastic Four', year:"2025", text:"Forced to balance their roles as heroes with the strength of their family bond, the Fantastic Four must defend Earth from a ravenous space", image: TheFatasticImage },
     ];
 
     return (
@@ -30,9 +32,9 @@ const CardMovie = () => {
                             <div className="bg-dark p-2">
                                 <Card.Title>{movie.title}</Card.Title>
                                 <Card.Text>
-                                    This is a wider card with supporting text below.
+                                    {movie.text}
                                 </Card.Text>
-                                <Card.Text>Last updated 3 mins ago</Card.Text>
+                                <Card.Text>{movie.year}</Card.Text>
                                 <Button onClick={() => addToWatchlist(movie)}>Watchlist</Button>
                             </div>
                         </Card>
