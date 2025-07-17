@@ -1,24 +1,28 @@
-import WatchedList from './pages/Home';
-import { WatchedProvider } from './context/WatchedContext';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavigationBar from "./components/NavigationBar";
-import "./style/header.css"
+import "./style/header.css";
 import Content from "./components/Content";
 import CardMovie from "./components/CardMovie";
+import Watchlist from "./components/Watchlist"; // ⬅️ Import halaman baru
 
 function App() {
-  return (
-    <div>
-        <div className="myBg border">
-            <NavigationBar />
-            <Content />
-        </div>
+    return (
+        <Router>
+            <div className="myBg border">
+                <NavigationBar />
+                <Content />
+            </div>
 
-        <div className="card">
-            <CardMovie />
-        </div>
-
-
-    </div>
-  )}
+            <Routes>
+                <Route path="/" element={
+                    <div className="card">
+                        <CardMovie />
+                    </div>
+                } />
+                <Route path="/watchlist" element={<Watchlist />}/>
+            </Routes>
+        </Router>
+    );
+}
 
 export default App;

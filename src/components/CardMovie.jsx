@@ -1,102 +1,46 @@
-import Card from 'react-bootstrap/Card';
-import "../style/header.css"
+import { useContext } from 'react';
+import { WatchlistContext } from '../context/WatchlistContext';
+import { Button, Card, Col, Container, Image, Row } from 'react-bootstrap';
 import SupermanImage from '../assets/superman.png';
 import SmileImage from '../assets/smile.png';
 import theScentImage from '../assets/the scent.png';
 import LostCityImage from '../assets/Lostcity.png';
 import ThelastOfUseImage from '../assets/The Last Of Us.jpg';
 import TheFatasticImage from '../assets/The Fantastic Four.jpg';
-import {Col, Container, Image, Row} from "react-bootstrap";
 
+const CardMovie = () => {
+    const { addToWatchlist } = useContext(WatchlistContext);
 
-const cardMovie = () => {
+    const movies = [
+        { title: 'Superman', image: SupermanImage },
+        { title: 'Smile', image: SmileImage },
+        { title: 'The Scent', image: theScentImage },
+        { title: 'Lost City', image: LostCityImage },
+        { title: 'The Last Of Us', image: ThelastOfUseImage },
+        { title: 'The Fantastic Four', image: TheFatasticImage },
+    ];
+
     return (
-        <div>
-            <Container className="my-2 shadow">
-                <Row>
-                    <Col md={4} className="movieWriper">
-                        <Card className="text-white text-center movieImage" >
-                            <Image src={SupermanImage} alt="Superman image" />
-                            <div className="bg-dark">
-                                <Card.Title>Superman</Card.Title>
+        <Container className="my-2 shadow">
+            <Row>
+                {movies.map((movie, index) => (
+                    <Col md={4} className="movieWriper" key={index}>
+                        <Card className="text-white text-center movieImage">
+                            <Image src={movie.image} alt={`${movie.title} image`} />
+                            <div className="bg-dark p-2">
+                                <Card.Title>{movie.title}</Card.Title>
                                 <Card.Text>
-                                    This is a wider card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.
+                                    This is a wider card with supporting text below.
                                 </Card.Text>
                                 <Card.Text>Last updated 3 mins ago</Card.Text>
+                                <Button onClick={() => addToWatchlist(movie)}>Watchlist</Button>
                             </div>
                         </Card>
                     </Col>
-                    <Col md={4} className="movieWriper">
-                        <Card className="text-white text-center movieImage" >
-                            <Image src={SmileImage} alt="smile image" />
-                            <div className="bg-dark">
-                                <Card.Title>Smile</Card.Title>
-                                <Card.Text>
-                                    This is a wider card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.
-                                </Card.Text>
-                                <Card.Text>Last updated 3 mins ago</Card.Text>
-                            </div>
-                        </Card>
-                    </Col>
-                    <Col md={4} className="movieWriper">
-                        <Card className="text-white text-center movieImage" >
-                            <Image src={theScentImage} alt="the scent image" />
-                            <div className="bg-dark">
-                                <Card.Title>The Scent</Card.Title>
-                                <Card.Text>
-                                    This is a wider card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.
-                                </Card.Text>
-                                <Card.Text>Last updated 3 mins ago</Card.Text>
-                            </div>
-                        </Card>
-                    </Col>
-                    <Col md={4} className="movieWriper">
-                        <Card className="text-white text-center movieImage" >
-                            <Image src={LostCityImage} alt="lost city image" />
-                            <div className="bg-dark">
-                                <Card.Title>Lost City</Card.Title>
-                                <Card.Text>
-                                    This is a wider card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.
-                                </Card.Text>
-                                <Card.Text>Last updated 3 mins ago</Card.Text>
-                            </div>
-                        </Card>
-                    </Col>
-                    <Col md={4} className="movieWriper">
-                        <Card className="text-white text-center movieImage" >
-                            <Image src={ThelastOfUseImage} alt="the last of used image" />
-                            <div className="bg-dark">
-                                <Card.Title>The Last OF US</Card.Title>
-                                <Card.Text>
-                                    This is a wider card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.
-                                </Card.Text>
-                                <Card.Text>Last updated 3 mins ago</Card.Text>
-                            </div>
-                        </Card>
-                    </Col>
-                    <Col md={4} className="movieWriper">
-                        <Card className="text-white text-center movieImage" >
-                            <Image src={TheFatasticImage} alt="The Fatastic Four Image" />
-                            <div className="bg-dark">
-                                <Card.Title>The Fantastic Four 2025</Card.Title>
-                                <Card.Text>
-                                    This is a wider card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.
-                                </Card.Text>
-                                <Card.Text>Last updated 3 mins ago</Card.Text>
-                            </div>
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
+                ))}
+            </Row>
+        </Container>
+    );
+};
 
-        </div>
-    )
-}
-
-export default cardMovie;
+export default CardMovie;

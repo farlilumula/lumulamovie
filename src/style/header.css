@@ -21,3 +21,15 @@
     max-width: 550px;
     margin: 70px auto;
 }
+
+.mybg2 {
+    background: url("../assets/bg2.jpg");
+    background-size: cover;
+}
+
+
+.navlink-large {
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
